@@ -15,10 +15,13 @@ module.exports = {
   lintOnSave: true,
   devServer: {
     proxy: {
-      '/': {
+      '/api': {
         target: 'http://172.16.7.22:8001',
         ws: true,
-        changeOrigin: true
+        changeOrigin: true,
+        pathRewrite: {
+          '^/api': ''
+        }
       }
     }
     // publicPath // 和 publicPath 保持一致

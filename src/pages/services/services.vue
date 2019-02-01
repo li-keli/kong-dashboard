@@ -1,9 +1,15 @@
 <template>
     <d2-container>
-        <template slot="header">Services List</template>
-        <d2-curd>
-
-        </d2-curd>
+        <template slot="header">Service 服务列表</template>
+        <d2-crud
+                ref="d2Crud"
+                :columns="columns"
+                :data="data"
+                index-row
+                :options="options"
+                :loading="loading"
+                :loading-options="loadingOptions"
+        />
     </d2-container>
 </template>
 
@@ -12,16 +18,55 @@ import { ServicesList } from '@/api/admin.api.services'
 
 export default {
   data () {
-    return ServicesList({}).then(res => {
-      // 返回数据
-      console.log(res)
-    })
+    return {
+      columns: [
+        {
+          title: '服务编号',
+          key: 'id',
+          width: '300'
+        },
+        {
+          title: '服务名称',
+          key: 'name'
+        },
+        {
+          title: '上游主机',
+          key: 'host'
+        },
+        {
+          title: '上游端口',
+          key: 'port'
+        },
+        {
+          title: '代理路径',
+          key: 'path'
+        },
+        {
+          title: '支持协议',
+          key: 'protocol'
+        }
+      ],
+      data: [],
+      options: {
+        border: true
+      },
+      loading: true,
+      loadingOptions: {
+        text: '拼命加载中',
+        spinner: 'el-icon-loading'
+      }
+    }
+  },
+  methods: {
+    fetchData () {
+      ServicesList({}).then(res => {
+        this.data = res['data']
+        this.loading = false
+      })
+    }
   },
   mounted () {
-    ServicesList({}).then(res => {
-      // 返回数据
-      console.log(res)
-    })
+    this.fetchData()
   }
 }
 </script>

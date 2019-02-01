@@ -7,7 +7,7 @@ import request from '@/plugin/axios'
  */
 export function ServicesList (data) {
   return request({
-    url: '/services',
+    url: '/api/services',
     method: 'get',
     data
   })
@@ -20,7 +20,7 @@ export function ServicesList (data) {
  */
 export function ServicesCreate (data) {
   return request({
-    url: '/services',
+    url: '/api/services',
     method: 'post',
     data
   })
