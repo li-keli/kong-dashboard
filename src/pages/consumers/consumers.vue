@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { ServicesList } from '@/api/admin.api.services'
+import { ConsumersList } from '@/api/admin.api.consumers'
 
 export default {
   data () {
@@ -62,7 +62,7 @@ export default {
   },
   methods: {
     fetchData () {
-      ServicesList({}).then(res => {
+      ConsumersList({}).then(res => {
         this.data = res['data']
         this.loading = false
       })

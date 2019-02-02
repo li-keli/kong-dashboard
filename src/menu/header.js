@@ -3,7 +3,7 @@ export const menuAside = [
   { path: '/services', title: '服务列表', icon: 'tasks' },
   { path: '/paths', title: '路由列表', icon: 'truck' },
   { path: '/plugins', title: '插件', icon: 'plug' },
-  { path: '/customers', title: '消费者', icon: 'puzzle-piece' }
+  { path: '/consumers', title: '消费者', icon: 'puzzle-piece' }
 ]
 
 export const menuHeader = [
@@ -11,5 +11,5 @@ export const menuHeader = [
   { path: '/services', title: '服务列表', icon: 'tasks' },
   { path: '/paths', title: '路由列表', icon: 'truck' },
   { path: '/plugins', title: '插件', icon: 'plug' },
-  { path: '/customers', title: '消费者', icon: 'puzzle-piece' }
+  { path: '/consumers', title: '消费者', icon: 'puzzle-piece' }
 ]

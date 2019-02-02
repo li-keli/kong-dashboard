@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import { ServicesList } from '@/api/admin.api.plugins'
+import { PluginsList } from '@/api/admin.api.plugins'
 
 export default {
   data () {
@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     fetchData () {
-      ServicesList({}).then(res => {
+      PluginsList({}).then(res => {
         this.data = res['data']
         this.loading = false
       })
