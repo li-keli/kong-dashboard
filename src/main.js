@@ -6,20 +6,16 @@ import store from '@/store/index'
 // 核心插件
 import d2Admin from '@/plugin/d2admin'
 // 表单操作
-import elementUI from 'element-ui'
-import 'element-ui/lib/theme-chalk/index.css'
-import d2Crud from '@d2-projects/d2-crud'
+import D2Crud from '@d2-projects/d2-crud'
 
 // 菜单和路由设置
 import router from './router'
-import menuHeader from '@/menu/header'
-import menuAside from '@/menu/aside'
+import { menuHeader, menuAside } from '@/menu/header'
 import { frameInRoutes } from '@/router/routes'
 
 // 核心插件
 Vue.use(d2Admin)
-Vue.use(elementUI)
-Vue.use(d2Crud)
+Vue.use(D2Crud)
 
 new Vue({
   router,
@@ -30,8 +26,6 @@ new Vue({
     this.$store.commit('d2admin/page/init', frameInRoutes)
     // 设置顶栏菜单
     this.$store.commit('d2admin/menu/headerSet', menuHeader)
-    // 设置侧边栏菜单
-    this.$store.commit('d2admin/menu/asideSet', menuAside)
     // 初始化菜单搜索功能
     this.$store.commit('d2admin/search/init', menuHeader)
   },
@@ -44,5 +38,12 @@ new Vue({
     this.$store.commit('d2admin/ua/get')
     // 初始化全屏监听
     this.$store.dispatch('d2admin/fullscreen/listen')
+  },
+  watch: {
+    // 监听路由 控制侧边栏显示
+    '$route.matched' (val) {
+      const _side = menuAside.filter(menu => menu.path === val[0].path)
+      this.$store.commit('d2admin/menu/asideSet', _side.length > 0 ? _side[0].children : [])
+    }
   }
 }).$mount('#app')

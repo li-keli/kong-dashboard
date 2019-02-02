@@ -1,6 +1,9 @@
-import demo from './modules/demo'
-
 import layoutHeaderAside from '@/layout/header-aside'
+
+import servicesAside from './modules/services'
+import routersAside from './modules/routers'
+import plugsAside from './modules/plugs'
+import customersAside from './modules/customers'
 
 /**
  * 在主框架内显示
@@ -43,20 +46,13 @@ const frameIn = [
           },
           render: h => h()
         }
-      }
-      ,
-      {
-        path: 'services',
-        name: 'services',
-        component: () => import('@/pages/services'),
-        meta: {
-          auth: true,
-          title: '服务列表'
-        }
-      }
+      },
+      servicesAside,
+      routersAside,
+      plugsAside,
+      customersAside
     ]
-  },
-  demo
+  }
 ]
 
 /**

@@ -1,11 +1,12 @@
 <template>
     <d2-container>
-        <template slot="header">Service 服务列表</template>
+        <template slot="header">Plugs 插件列表</template>
         <d2-crud
                 ref="d2Crud"
                 :columns="columns"
                 :data="data"
                 index-row
+                size="mini"
                 :inline="true"
                 :options="options"
                 :loading="loading"
