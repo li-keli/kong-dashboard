@@ -1,6 +1,6 @@
 <template>
     <d2-container>
-        <template slot="header">Customers 消费者列表</template>
+        <template slot="header">Consumers 消费者列表</template>
         <d2-crud
                 ref="d2Crud"
                 :columns="columns"
@@ -23,29 +23,21 @@ export default {
     return {
       columns: [
         {
-          title: '服务编号',
+          title: '消费者编号',
           key: 'id',
           width: '300'
         },
         {
-          title: '服务名称',
-          key: 'name'
+          title: '消费者',
+          key: 'custom_id'
         },
         {
-          title: '上游主机',
-          key: 'host'
+          title: '消费者的唯一用户名',
+          key: 'username'
         },
         {
-          title: '上游端口',
-          key: 'port'
-        },
-        {
-          title: '代理路径',
-          key: 'path'
-        },
-        {
-          title: '支持协议',
-          key: 'protocol'
+          title: '创建时间',
+          key: 'created_at'
         }
       ],
       data: [],
