@@ -2,7 +2,7 @@ import layoutHeaderAside from '@/layout/header-aside'
 
 import servicesAside from './modules/services'
 import pathsAside from './modules/paths'
-import plugsAside from './modules/plugs'
+import pluginsAside from './modules/plugins'
 import customersAside from './modules/customers'
 
 /**
@@ -49,7 +49,7 @@ const frameIn = [
       },
       servicesAside,
       pathsAside,
-      plugsAside,
+      pluginsAside,
       customersAside
     ]
   }

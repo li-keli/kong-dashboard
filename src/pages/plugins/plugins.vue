@@ -16,36 +16,35 @@
 </template>
 
 <script>
-import { ServicesList } from '@/api/admin.api.services'
+import { ServicesList } from '@/api/admin.api.plugins'
 
 export default {
   data () {
     return {
       columns: [
         {
-          title: '服务编号',
-          key: 'id',
-          width: '300'
+          title: '插件编号',
+          key: 'id'
         },
         {
-          title: '服务名称',
-          key: 'name'
+          title: '所属服务',
+          key: 'service_id'
         },
         {
           title: '上游主机',
-          key: 'host'
+          key: 'route_id'
         },
         {
           title: '上游端口',
-          key: 'port'
+          key: 'consumer_id'
         },
         {
-          title: '代理路径',
-          key: 'path'
+          title: '是否启动',
+          key: 'enabled'
         },
         {
-          title: '支持协议',
-          key: 'protocol'
+          title: '插件配置',
+          key: 'config'
         }
       ],
       data: [],

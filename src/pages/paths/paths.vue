@@ -16,36 +16,35 @@
 </template>
 
 <script>
-import { ServicesList } from '@/api/admin.api.services'
+import { PathsList } from '@/api/admin.api.paths'
 
 export default {
   data () {
     return {
       columns: [
         {
-          title: '服务编号',
-          key: 'id',
-          width: '300'
+          title: '路由编号',
+          key: 'id'
         },
         {
-          title: '服务名称',
-          key: 'name'
+          title: '所属服务',
+          key: 'service.id'
         },
         {
           title: '上游主机',
-          key: 'host'
-        },
-        {
-          title: '上游端口',
-          key: 'port'
+          key: 'hosts'
         },
         {
           title: '代理路径',
-          key: 'path'
+          key: 'paths'
+        },
+        {
+          title: '是否删除上游的前缀',
+          key: 'strip_path'
         },
         {
           title: '支持协议',
-          key: 'protocol'
+          key: 'protocols'
         }
       ],
       data: [],
@@ -62,7 +61,7 @@ export default {
   },
   methods: {
     fetchData () {
-      ServicesList({}).then(res => {
+      PathsList({}).then(res => {
         this.data = res['data']
         this.loading = false
       })
