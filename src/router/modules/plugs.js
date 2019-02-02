@@ -1,10 +1,7 @@
-import layoutHeaderAside from '@/pages/plugs'
-
-const meta = { auth: true, title: '插件' }
-
+// 插件列表
 export default {
   path: '/plugs',
   name: 'plugs',
-  meta,
-  component: layoutHeaderAside
+  meta: { auth: true, title: '插件列表' },
+  component: () => import('@/pages/plugs')
 }

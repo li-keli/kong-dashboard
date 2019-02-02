@@ -1,7 +1,7 @@
 import layoutHeaderAside from '@/layout/header-aside'
 
 import servicesAside from './modules/services'
-import routersAside from './modules/routers'
+import pathsAside from './modules/paths'
 import plugsAside from './modules/plugs'
 import customersAside from './modules/customers'
 
@@ -48,7 +48,7 @@ const frameIn = [
         }
       },
       servicesAside,
-      routersAside,
+      pathsAside,
       plugsAside,
       customersAside
     ]
